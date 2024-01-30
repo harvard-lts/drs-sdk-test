@@ -20,7 +20,7 @@ def handler(context, event):
     for fid in fids:
         md = (
                 '[{"iecode": "relation", "value": '
-                f'"aspace:{fid}"' '}]')
+                f'["aspace:{fid}"]' '}]')
         cmd = File.get_metadata(fid, flatten=True)
         request_helper.log(f"Current metadata for {fid}: {cmd}")
         File.set_metadata_values(fid, md)

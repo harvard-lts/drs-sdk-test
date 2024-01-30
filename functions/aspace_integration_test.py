@@ -21,7 +21,8 @@ def handler(context, event):
         md = (
                 '{"metadata": [{"iecode": "relation", "value": '
                 f'"aspace:{fid}"' '}]}')
-        request_helper.log(f"Setting metadata for {fid}: {md}")
+        cmd = File.get_metadata(fid, flatten=True)
+        request_helper.log(f"Current metadata for {fid}: {cmd}")
         File.set_metadata(fid, md)
 
     request_helper.job_end(True)

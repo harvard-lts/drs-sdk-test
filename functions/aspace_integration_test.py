@@ -14,7 +14,7 @@ def handler(context, event):
 
     fids = request_helper.JSONData['function_data']['files']['ids']
     request_helper.log(
-            f"The following objects will be pushed to ASpace: {fids}",
+            f"The following objects will be pushed to ArchiveSpace: {fids}",
             JobMessageType.INFO)
 
     for fid in fids:

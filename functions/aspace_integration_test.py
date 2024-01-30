@@ -18,9 +18,10 @@ def handler(context, event):
             JobMessageType.INFO)
 
     for fid in fids:
-        File.set_metadata(
-                fid,
+        md = (
                 '{"metadata": [{"iecode": "relation", "value": '
                 f'"aspace:{fid}"' '}]}')
+        request_helper.log(f"Setting metadata for {fid}: {md}")
+        File.set_metadata(fid, md)
 
     request_helper.job_end(True)
